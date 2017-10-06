@@ -1,14 +1,5 @@
 #!/usr/bin/env python3
 
-debug = False
-
-
-def print_debug(*args):
-    """Only print if in debug mode"""
-
-    if debug:
-        print(*args)
-
 
 def try_layout(w, h, text, size):
     """Tries to layout the text in rectangle, using text size"""
@@ -37,11 +28,7 @@ def max_font_size(w, h, text):
     size = min(w, h)
     # Try decreasing font sizes until text fits in rectangle
     while size > 0:
-        print_debug("\nTrying size of", size)
         layout = try_layout(w, h, text, size)
-
-        for line in layout:
-            print_debug(line)
 
         max_char = max(len(line) for line in layout)
 
